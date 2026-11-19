@@ -6,7 +6,8 @@ export function Hero() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <section className="relative bg-[#2B0A10] text-[#F5F5F7] overflow-hidden">
+    
+    <section className="pt-19 pb-7 md:pt-27 md:pb-15 relative bg-[#2B0A10] text-[#F5F5F7] overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -14,7 +15,7 @@ export function Hero() {
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Tag / Especialidade */}
             <span className="inline-block py-1 px-3 rounded-full bg-[#3A0B12] border border-[#D4AF37]/40 text-[#F3C653] text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">
-              Performade Para a Vida Real
+              Performace Para a Vida Real
             </span>
 
             {/* Título Principal (H1) */}
@@ -86,7 +87,7 @@ export function Hero() {
                   <p className="text-xs text-[#F3C653] font-bold uppercase tracking-wider">Consultoria VIP</p>
                 </div>
                 <p className="text-sm font-semibold text-[#F5F5F7]">
-                  Plano alimentar entregue na hora da consulta
+                  Plano alimentar entregue em até 48 horas úteis após o atendimento.
                 </p>
               </div>
             </div>
