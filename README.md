@@ -95,7 +95,6 @@ public/
 
 O jeito mais simples é pela [Vercel](https://vercel.com/new): importe o repositório do GitHub e o deploy é automático a cada `git push`.
 
-> Em servidores Linux (como a Vercel) o caminho dos arquivos diferencia maiúsculas de minúsculas. Mantenha `images/` e os nomes de arquivos sempre em minúsculo.
 
 ## Autor
 
