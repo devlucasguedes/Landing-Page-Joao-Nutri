@@ -24,3 +24,40 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ===== Responsividade: sem rolagem lateral ===== */
+@layer base {
+  /* Evita que o navegador aumente textos sozinho no mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* clip corta o excedente sem criar um novo contexto de rolagem
+     (diferente do hidden, não quebra position: sticky, como a Navbar) */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* Mídias nunca ultrapassam o container */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Palavras longas (e-mails, links) quebram em vez de estourar */
+  p,
+  h1,
+  h2,
+  h3,
+  a {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Mobile-first: estilo base é o celular, e você amplia com min-width */
+@media (min-width: 768px) {
+  /* ajustes para tablet/desktop */
+}

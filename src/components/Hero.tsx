@@ -7,19 +7,19 @@ export function Hero() {
 
   return (
     
-    <section className="pt-19 pb-7 md:pt-27 md:pb-15 relative bg-[#2B0A10] text-[#F5F5F7] overflow-hidden">
+    <section id="inicio" className="pt-19 pb-7 md:pt-27 md:pb-15 relative bg-[#2B0A10] text-[#F5F5F7] overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Coluna de Texto (Esquerda no Desktop, Topo no Mobile) */}
           <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Tag / Especialidade */}
+            {/* Tag / Especialidade (typo corrigido: "Performance") */}
             <span className="inline-block py-1 px-3 rounded-full bg-[#3A0B12] border border-[#D4AF37]/40 text-[#F3C653] text-xs sm:text-sm font-bold tracking-wide uppercase mb-4">
-              Performace Para a Vida Real
+              Performance Para a Vida Real
             </span>
 
-            {/* Título Principal (H1) */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F5F5F7] tracking-tight leading-tight mb-6">
+            {/* Título Principal (H1): fonte menor só em telas abaixo de 360px */}
+            <h1 className="text-[1.65rem] min-[360px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F5F5F7] tracking-tight leading-tight mb-6">
               Alcance o máximo da sua <span className="text-[#D4AF37]">performance e estética</span> com estratégia nutricional.
             </h1>
 
@@ -68,8 +68,8 @@ export function Hero() {
           {/* Coluna da Imagem (Direita no Desktop, Base no Mobile) */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              {/* Elemento decorativo atrás da foto */}
-              <div className="absolute -inset-2 bg-[#3A0B12] border border-[#D4AF37]/30 rounded-3xl transform rotate-3"></div>
+              {/* Elemento decorativo atrás da foto: encosta na foto e inclina pouco no celular */}
+              <div className="absolute inset-0 sm:-inset-2 bg-[#3A0B12] border border-[#D4AF37]/30 rounded-3xl transform rotate-2 sm:rotate-3"></div>
               
               {/* Container da Foto */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#3A0B12] border border-[#D4AF37]/20 aspect-4/5">
@@ -80,8 +80,8 @@ export function Hero() {
                 />
               </div>
 
-              {/* Card Flutuante de Destaque */}
-              <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-[#3A0B12] p-4 rounded-xl shadow-xl border border-[#D4AF37]/40 max-w-230px">
+              {/* Card Flutuante de Destaque: dentro da foto no celular, flutuando na lateral do sm pra cima (max-w corrigido) */}
+              <div className="absolute -bottom-6 left-3 right-3 sm:right-auto sm:-left-6 sm:max-w-57.5 bg-[#3A0B12] p-4 rounded-xl shadow-xl border border-[#D4AF37]/40">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-[#F3C653]"></span>
                   <p className="text-xs text-[#F3C653] font-bold uppercase tracking-wider">Consultoria VIP</p>

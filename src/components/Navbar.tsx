@@ -54,7 +54,7 @@ export function Navbar(): React.JSX.Element {
             {/* Substitua o src pelo caminho exato da sua logo dourada na pasta /public */}
             <div className="relative h-10 w-36 sm:h-12 sm:w-44">
               <Image
-                src="/Images/logo-jlteam-gold.png"
+                src="/images/logo-jlteam-gold.png"
                 alt="Logomarca João Nutricionista"
                 fill
                 priority
@@ -78,7 +78,7 @@ export function Navbar(): React.JSX.Element {
             </nav>
 
             <a
-              href="https://wa.me/5585999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta."
+              href="https://wa.me/5585989226425?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-[#360812] text-sm font-bold transition-all shadow-sm hover:shadow-amber-500/20"

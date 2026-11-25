@@ -25,15 +25,15 @@ export function About() {
   ];
 
   return (
-    <section id="sobre" className="relative bg-[#2B0A10] text-[#F5F5F7] py-16 md:py-24 border-t border-[#D4AF37]/15">
+    <section id="sobre" className="relative bg-[#2B0A10] text-[#F5F5F7] py-16 md:py-24 border-t border-[#D4AF37]/15 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Coluna da Foto (Esquerda no Desktop para alternar o ritmo visual com a Hero) */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              {/* Moldura decorativa deslocada */}
-              <div className="absolute -inset-3 border-2 border-[#D4AF37]/30 rounded-2xl transform -rotate-2"></div>
+              {/* Moldura decorativa deslocada: encosta na foto e inclina pouco no celular */}
+              <div className="absolute inset-0 sm:-inset-3 border-2 border-[#D4AF37]/30 rounded-2xl transform -rotate-1 sm:-rotate-2"></div>
               
               {/* Container da Foto */}
               <div className="relative rounded-2xl overflow-hidden bg-[#3A0B12] border border-[#D4AF37]/20 shadow-2xl aspect-4/5">
@@ -67,6 +67,7 @@ export function About() {
             </h2>
 
             <div className="space-y-4 text-base text-[#F5F5F7]/80 leading-relaxed mb-8">
+              <p>Sou João Lucas Dantas, nutricionista e treinador. O esporte faz parte da minha rotina, e essa vivência me ajuda a entender, na prática, como a alimentação pode apoiar seus objetivos.</p>
               <p>
                 Acredito que uma estratégia nutricional eficiente não precisa ser sinônimo de sofrimento ou restrições extremas. Meu trabalho é unir a precisão da nutrição esportiva à realidade da sua rotina.
               </p>

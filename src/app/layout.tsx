@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page - João Nutri",
-  description: "Landing page do nutricionista João Lucas, com informações sobre seus serviços, contato e depoimentos de clientes.",
+  title: "João Lucas Nutricionista",
+  description: "Landing page do nutricionista João Lucas Dantas, com informações sobre seus serviços, contato e depoimentos de clientes.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

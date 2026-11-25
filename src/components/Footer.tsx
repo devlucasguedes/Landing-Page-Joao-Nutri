@@ -143,7 +143,7 @@ export async function Footer(): Promise<React.JSX.Element> {
       <div className="border-t border-amber-500/10 bg-[#21040B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
           <p>
-            © {currentYear} João Lucas Nutricionista. Todos os direitos reservados.
+            © {currentYear} João Lucas Dantas Nutricionista. Todos os direitos reservados.
           </p>
           <p>
             Desenvolvido por{' '}
