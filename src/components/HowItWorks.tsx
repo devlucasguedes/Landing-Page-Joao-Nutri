@@ -1,9 +1,27 @@
+"use client"; 
+
+import { useRef, useState } from "react";
+
 export function HowItWorks() {
   const whatsappNumber = "5585989226425";
   const whatsappMessage = encodeURIComponent(
     "Olá! Vi como funciona o atendimento no site e gostaria de agendar minha consulta."
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  // Ref do carrossel (tipada como div) e índice do card ativo para as bolinhas
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  // Calcula qual card está mais centralizado ao rolar
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    const firstCard = el?.firstElementChild as HTMLElement | null;
+    if (!el || !firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth + 16; // largura do card + gap (gap-4 = 16px)
+    setActive(Math.round(el.scrollLeft / cardWidth));
+  };
 
   const steps = [
     {
@@ -56,12 +74,26 @@ export function HowItWorks() {
           </p>
         </div>
 
-        {/* Grid dos 4 Passos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
+        {/* Carrossel com swipe no mobile; grid (2 colunas no md, 4 no lg) a partir do tablet */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="
+            flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4
+            -mx-4 px-4 sm:-mx-6 sm:px-6
+            [scrollbar-none] [&::-webkit-scrollbar]:hidden
+            md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-8 md:overflow-visible md:snap-none
+            md:mx-0 md:px-0 md:pb-0 relative
+          "
+        >
           {steps.map((step, index) => (
             <div
               key={index}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-[#3A0B12] border border-[#D4AF37]/25 hover:border-[#F3C653] transition-all duration-300 shadow-xl"
+              className="
+                group relative flex flex-col justify-between p-6 rounded-2xl bg-[#3A0B12]
+                border border-[#D4AF37]/25 hover:border-[#F3C653] transition-all duration-300 shadow-xl
+                shrink-0 w-[80%] sm:w-[60%] snap-center md:w-auto
+              "
             >
               <div>
                 {/* Topo do Card: Número em destaque + Linha decorativa */}
@@ -89,6 +121,18 @@ export function HowItWorks() {
                 </span>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Indicadores do carrossel (somente mobile) */}
+        <div className="flex justify-center gap-2 mt-4 md:hidden">
+          {steps.map((_, i) => (
+            <span
+              key={i}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                active === i ? "w-6 bg-[#D4AF37]" : "w-2 bg-[#D4AF37]/30"
+              }`}
+            />
           ))}
         </div>
 

@@ -1,4 +1,23 @@
+"use client"; 
+
+import { useRef, useState } from "react";
+
 export function Testimonials() {
+  // Referência do container do carrossel e índice do card ativo (para as bolinhas)
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  // Calcula qual card está mais centralizado ao rolar
+  const handleScroll = () => {
+  const el = scrollRef.current;
+  
+  const firstCard = el?.firstElementChild as HTMLElement | null;
+  if (!el || !firstCard) return;
+
+  const cardWidth = firstCard.offsetWidth + 16; // largura do card + gap (gap-4 = 16px)
+  setActive(Math.round(el.scrollLeft / cardWidth));
+};
+
   const testimonials = [
     {
       name: "Carlos Eduardo",
@@ -46,12 +65,27 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* Grid de Cards de Depoimentos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Container: carrossel com swipe no mobile, grid de 3 colunas no desktop */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="
+            flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4
+            -mx-4 px-4 sm:-mx-6 sm:px-6
+            [scrollbar-none] [&::-webkit-scrollbar]:hidden
+            md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:snap-none
+            md:mx-0 md:px-0 md:pb-0
+          "
+        >
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="group flex flex-col justify-between rounded-2xl bg-[#3A0B12] border border-[#D4AF37]/25 hover:border-[#F3C653] overflow-hidden shadow-xl transition-all duration-300"
+              className="
+                group flex flex-col justify-between rounded-2xl bg-[#3A0B12]
+                border border-[#D4AF37]/25 hover:border-[#F3C653] overflow-hidden
+                shadow-xl transition-all duration-300
+                shrink-0 w-[85%] sm:w-[70%] snap-center md:w-auto
+              "
             >
               <div>
                 {/* Área da Foto (Nutricionista + Paciente) */}
@@ -101,6 +135,18 @@ export function Testimonials() {
                 </svg>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Indicadores do carrossel (somente mobile) */}
+        <div className="flex justify-center gap-2 mt-4 md:hidden">
+          {testimonials.map((_, i) => (
+            <span
+              key={i}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                active === i ? "w-6 bg-[#D4AF37]" : "w-2 bg-[#D4AF37]/30"
+              }`}
+            />
           ))}
         </div>
 
