@@ -39,7 +39,7 @@ export async function Footer(): Promise<React.JSX.Element> {
             <Link href="#inicio" className="inline-block focus:outline-none">
               <div className="relative h-12 w-44">
                 <Image
-                  src="/Images/logo-jlteam-gold.png"
+                  src="/images/logo-jlteam-gold.png"
                   alt="Logomarca João Lucas Nutricionista"
                   fill
                   className="object-contain object-left"
