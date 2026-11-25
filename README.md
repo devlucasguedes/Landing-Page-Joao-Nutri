@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Landing Page | João Nutri
 
-## Getting Started
+Landing page profissional para um nutricionista esportivo, focada em converter visitantes em consultas agendadas pelo WhatsApp.
 
-First, run the development server:
+## Funcionalidades
+
+- Design responsivo (testado de 320px até desktop)
+- Carrossel com swipe e indicadores nos cards de **Depoimentos** e **Como Funciona** no celular
+- Menu fixo com menu mobile e rolagem até cada seção
+- FAQ em formato accordion
+- Botões de CTA com mensagem pré-pronta no WhatsApp
+- Imagens otimizadas com `next/image`
+
+## Seções
+
+| Seção | Componente | Âncora |
+|---|---|---|
+| Início | `Hero.tsx` | `#inicio` |
+| Sobre | `About.tsx` | `#sobre` |
+| Como Funciona | `HowItWorks.tsx` | `#como-funciona` |
+| Depoimentos | `Testimonials.tsx` | `#depoimentos` |
+| Dúvidas | `Faq.tsx` | `#faq` |
+| Rodapé | `Footer.tsx` | - |
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org) (App Router)
+- [React](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Lucide React](https://lucide.dev) (ícones)
+
+## Como rodar
+
+Pré-requisito: [Node.js](https://nodejs.org) instalado.
 
 ```bash
+# 1. Clonar o repositório
+git clone https://github.com/<seu-usuario>/landingpage-joaonutri.git
+
+# 2. Entrar na pasta
+cd landingpage-joaonutri
+
+# 3. Instalar as dependências
+npm install
+
+# 4. Rodar em modo de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Outros comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # gera a versão de produção
+npm run start   # roda a versão de produção
+npm run lint    # verifica problemas no código
+```
 
-## Learn More
+## Estrutura do projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/            # layout, página principal e estilos globais
+├── components/     # seções da landing page (Hero, About, Faq...)
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── hooks/
+├── lib/
+├── services/
+├── types/
+└── utils/
+public/
+└── images/         # fotos e logo (nomes de pasta e arquivos em minúsculo)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Personalização
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Número do WhatsApp:** está definido em mais de um arquivo (`Navbar`, `Hero`, `About`, `HowItWorks`, `Faq`). Ao trocar, atualize todos.
+- **Textos de depoimentos e etapas:** ficam nos arrays no topo de `Testimonials.tsx` e `HowItWorks.tsx`, e o FAQ em `Faq.tsx`.
+- **Fotos e logo:** substitua os arquivos em `public/images/`.
+- **Favicon:** substitua `src/app/favicon.ico`.
 
-## Deploy on Vercel
+### Paleta de cores
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Uso | Cor |
+|---|---|
+| Fundo principal | `#2B0A10` |
+| Cards | `#3A0B12` |
+| Dourado | `#D4AF37` / `#F3C653` |
+| Texto | `#F5F5F7` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+O jeito mais simples é pela [Vercel](https://vercel.com/new): importe o repositório do GitHub e o deploy é automático a cada `git push`.
+
+> Em servidores Linux (como a Vercel) o caminho dos arquivos diferencia maiúsculas de minúsculas. Mantenha `images/` e os nomes de arquivos sempre em minúsculo.
+
+## Autor
+
+Desenvolvido por **Lucas** · [GitHub](https://github.com/devlucasguedes)
